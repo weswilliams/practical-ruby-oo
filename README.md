@@ -1,4 +1,4 @@
 practical-ruby-oo
 =================
 
-for working through book examples
+For working through book examples
