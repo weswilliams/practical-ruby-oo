@@ -29,9 +29,9 @@ end
 class Wheel
   attr_reader :rim, :tire
 
-  def initialize(rim, tire)
-    @rim = rim
-    @tire = tire
+  def initialize(args)
+    @rim = args[:rim] || 24
+    @tire = args[:tire] || 1.25
   end
 
   def diameter
@@ -41,5 +41,6 @@ class Wheel
   def circumference
     diameter * Math::PI
   end
+
 end
 
