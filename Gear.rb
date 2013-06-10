@@ -5,7 +5,6 @@ class Gear
     args = defaults.merge(args)
     @chainring = args[:chainring]
     @cog = args[:cog]
-    @wheel = args[:wheel]
   end
 
   def defaults
@@ -16,12 +15,8 @@ class Gear
     @chainring / @cog.to_f
   end
   
-  def gear_inches
+  def gear_inches(diameter)
     ratio * diameter
-  end
-
-  def diameter
-    @wheel.diameter
   end
 
 end
@@ -32,6 +27,7 @@ class Wheel
   def initialize(args)
     @rim = args[:rim] || 24
     @tire = args[:tire] || 1.25
+    @gear = args[:gear]
   end
 
   def diameter
@@ -40,6 +36,10 @@ class Wheel
 
   def circumference
     diameter * Math::PI
+  end
+
+  def gear_inches
+    @gear.gear_inches(diameter)
   end
 
 end
