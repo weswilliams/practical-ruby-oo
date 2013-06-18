@@ -1,5 +1,8 @@
+require 'forwardable'
 class Parts
-  attr_reader :parts
+  extend Forwardable
+  def_delegators :@parts, :size, :each
+  include Enumerable
 
   def initialize(parts)
     @parts = parts
